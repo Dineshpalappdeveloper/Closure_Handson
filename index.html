@@ -8,29 +8,267 @@
   </head>
   <body>
     <div class="parent">
-      <div class="headindigTop">Promise async AWait</div>
+      <div class="headindigTop">Closure</div>
       <div class="question">
         <hr />
         <h2>
-          Q1.Write one example explaining how you can write a callback function.
+          Q1." function counter(){ var counter = 0; function IncreaseCounter() {
+          return counter += 1; }; return IncreaseCounter; } var counter =
+          counter(); alert(counter()); alert(counter()); alert(counter());
+          alert(counter());"
         </h2>
         <pre>
         
-function FindSum(a, b) {
-    return a + b;
+function counter() {
+  var counter = 0;
+
+  function IncreaseCounter() {
+    return (counter += 1);
   }
-  
-  function DisplayData(data, batch) {
-    console.log(`i am from ${data} and My batch is EA${batch}`);
-  }
-  
-  DisplayData("PrepBytes", FindSum(10, 13));
-  // write a call back function just like pass a function as parameter
+
+  return IncreaseCounter;
+}
+
+var counter = counter();
+
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());
+
+// because every time count increing by one so number is 1,2,3,4 shown in alert dailog
           </pre
         >
         <div class="answer">
           <h3>Output:-</h3>
-          <h1 class="output">i am from PrepBytes and My batch is EA23</h1>
+          <h1 class="output">
+            1 <br />2 <br />
+            3 <br />
+            4
+          </h1>
+        </div>
+      </div>
+      <div class="question">
+        <hr />
+        <h2>
+          Q2."let count = 0; (function () { if (count === 0) { let count = 1;
+          console.log(count); // What is logged? } console.log(count); // What
+          is logged? })();"
+        </h2>
+        <pre>
+       
+let count = 0;
+(function () {
+  if (count === 0) {
+    let count = 1;
+    console.log(count); // What is logged?
+  }
+  console.log(count); // What is logged?
+})();
+
+// output is 1 and 0 bacause because let is a block lavel variable
+ </pre
+        >
+        <div class="answer">
+          <h3>Output:-</h3>
+          <h1 class="output">1 <br />0 <br /></h1>
+        </div>
+      </div>
+      <div class="question">
+        <hr />
+        <h2>
+          Q3."for (var i = 0; i < 3; i++) { setTimeout(function log() {
+          console.log(i); // What is logged? }, 1000); }"
+        </h2>
+        <pre>
+          for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }
+          // output  3 is three times due to setTimeout
+          </pre
+        >
+        <div class="answer">
+          <h3>Output:-</h3>
+          <h1 class="output">3,3,3</h1>
+        </div>
+      </div>
+      <div class="question">
+        <hr />
+        <h2>
+          Q4.Write a code to calculate area of a rectangle using inner function.
+          In this case outer function should accept parameter length and inner
+          function should accept parameter breadth.
+        </h2>
+        <pre>
+        
+function counter() {
+  var counter = 0;
+
+  function IncreaseCounter() {
+    return (counter += 1);
+  }
+
+  return IncreaseCounter;
+}
+
+var counter = counter();
+
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());
+
+// because every time count increing by one so number is 1,2,3,4 shown in alert dailog
+          </pre
+        >
+        <div class="answer">
+          <h3>Output:-</h3>
+          <h1 class="output">
+            1 <br />2 <br />
+            3 <br />
+            4
+          </h1>
+        </div>
+      </div>
+      <div class="question">
+        <hr />
+        <h2>
+          Q5. Take a variable in outer function and create an inner function to
+          increase the counter every time it is called
+        </h2>
+        <pre>
+        
+function counter() {
+  var counter = 0;
+
+  function IncreaseCounter() {
+    return (counter += 1);
+  }
+
+  return IncreaseCounter;
+}
+
+var counter = counter();
+
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());
+
+// because every time count increing by one so number is 1,2,3,4 shown in alert dailog
+          </pre
+        >
+        <div class="answer">
+          <h3>Output:-</h3>
+          <h1 class="output">
+            1 <br />2 <br />
+            3 <br />
+            4
+          </h1>
+        </div>
+      </div>
+      <div class="question">
+        <hr />
+        <h2>Q6."Print Output var a = 12; (function () { alert(a); })();"</h2>
+        <pre>
+        
+function counter() {
+  var counter = 0;
+
+  function IncreaseCounter()
+  var a = 12;
+  (function () {
+    alert(a);
+  })();
+  // in alert box show 12 because a is a global variable
+          </pre
+        >
+        <div class="answer">
+          <h3>Output:-</h3>
+          <h1 class="output">12</h1>
+        </div>
+      </div>
+      <div class="question">
+        <hr />
+        <h2>
+          Q7.var a = 10; var x = (function () { var a = 12; return function () {
+          alert(a); }; })(); x();
+        </h2>
+        <pre>
+          var a = 10;
+          var x = (function () {
+            var a = 12;
+            return function () {
+              alert(a);
+            };
+          })();
+          x();
+           
+          // here alert is 12 because var have reinitialization and redeclaration </pre
+        >
+        <div class="answer">
+          <h3>Output:-</h3>
+          <h1 class="output">12</h1>
+        </div>
+      </div>
+      <div class="question">
+        <hr />
+        <h2>
+          Q8. var globalVar = "xyz"; (function outerFunc(outerArg) { var
+          outerVar = "a"; (function innerFunc(innerArg) { var innerVar = "b";
+          console.log( "outerArg = " + outerArg + "\n" + "innerArg = " +
+          innerArg + "\n" + "outerVar = " + outerVar + "\n" + "innerVar = " +
+          innerVar + "\n" + "globalVar = " + globalVar ); })(456); })(123);
+        </h2>
+        <pre>
+        
+var globalVar = "xyz";
+
+(function outerFunc(outerArg) {
+  var outerVar = "a";
+
+  (function innerFunc(innerArg) {
+    var innerVar = "b";
+
+    console.log(
+      "outerArg = " +
+        outerArg +
+        "\n" +
+        "innerArg = " +
+        innerArg +
+        "\n" +
+        "outerVar = " +
+        outerVar +
+        "\n" +
+        "innerVar = " +
+        innerVar +
+        "\n" +
+        "globalVar = " +
+        globalVar
+    );
+  })(456);
+})(123);
+
+// here out is outerArg = 123
+// innerArg = 456
+// outerVar = a
+// innerVar = b
+// globalVar = xyz
+           
+       </pre
+        >
+        <div class="answer">
+          <h3>Output:-</h3>
+          <h1 class="output">
+            outerArg = 123
+            <br />
+            innerArg = 456 <br />
+            outerVar = a <br />
+            innerVar = b <br />
+            globalVar = xyz <br />
+          </h1>
         </div>
       </div>
     </div>
